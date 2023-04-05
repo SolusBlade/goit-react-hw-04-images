@@ -15,6 +15,7 @@ const Gallery = ({ query }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isBtn, setIsBtn] = useState(false);
   const [modalData, setModalData] = useState(null);
+  const [totalH, setTotalH] = useState(null);
 
   useEffect(() => {
     if (galleryQuery !== query) {
@@ -33,6 +34,7 @@ const Gallery = ({ query }) => {
       if (data.hits.length === 0) {
         throw new Error('no data there');
       }
+      
       setImages(p => {
         if (page === 1) {
           return data.hits;
@@ -40,7 +42,7 @@ const Gallery = ({ query }) => {
           return [...p, ...data.hits];
         }
       });
-
+      setTotalH(data.totalHits);
       setIsBtn(true);
     } catch (error) {
       Notiflix.Notify.failure(`Ooops, ${error.message}`, {
@@ -74,7 +76,7 @@ const Gallery = ({ query }) => {
   return (
     <>
       <ImageGallery images={images} openModal={openModal} />
-      {images.length > 0 && isBtn && <Button onClick={changePage} />}
+      {images.length > 0 && isBtn && totalH !== images.length && <Button onClick={changePage} />}
       {isLoading && (
         <Circles
           height="80"
