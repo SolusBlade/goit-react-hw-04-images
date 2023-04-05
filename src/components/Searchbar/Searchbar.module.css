@@ -1,0 +1,70 @@
+
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #b72f2b;
+  padding: 10px 0;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+  z-index: 5;
+
+}
+
+.searchForm{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
+  width: 300px;
+}
+.searchBtn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 5px;
+  margin-top: 1px;
+  margin-right: 1px;
+  margin-bottom: 1px;
+  border: none;
+  background-color: rgba(155, 155, 155, 0.3);
+  display: flex;
+  align-items: center;
+  transition: color 250ms ease;
+
+  height: calc(100% - 2px);
+}
+.searchInput{
+  outline: none;
+  padding: 5px 30px 5px 10px;
+  border: 1px solid rgba(155, 155, 155, 0.3);
+  border-radius: 2px;
+  font-size: 15px;
+  transition: box-shadow 250ms ease, border 250ms ease;
+
+  width: 100%;
+}
+.searchInput:hover,
+.searchInput:focus{
+  border: 1px solid #505050;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
+}
+.searchIcon{
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+.searchBtn:hover,
+.searchBtn:focus{
+  cursor: pointer;
+  color: #c72722;
+}
+.searchBtn:hover ~ .searchInput,
+.searchBtn:focus ~ .searchInput{
+  border: 1px solid #505050;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12);
+}
