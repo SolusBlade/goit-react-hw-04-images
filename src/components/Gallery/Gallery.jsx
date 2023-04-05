@@ -9,15 +9,6 @@ import { Circles } from 'react-loader-spinner';
 import Notiflix from 'notiflix';
 
 const Gallery = ({ query }) => {
-  // state = {
-  //   images: [],
-  //   page: 1,
-  //   query: '',
-  //   isLoading: false,
-  //   isBtn: false,
-  //   modalData: null,
-  // };
-
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [galleryQuery, setGalleryQuery] = useState('');
@@ -25,12 +16,6 @@ const Gallery = ({ query }) => {
   const [isBtn, setIsBtn] = useState(false);
   const [modalData, setModalData] = useState(null);
 
-  // static getDerivedStateFromProps(props, state) {
-  //   if (state.query !== props.query) {
-  //     return { page: 1, query: props.query };
-  //   }
-  //   return null;
-  // }
   useEffect(() => {
     if (galleryQuery !== query) {
       setPage(1);
@@ -38,15 +23,6 @@ const Gallery = ({ query }) => {
     }
   }, [query, galleryQuery]);
 
-  // async componentDidUpdate(prevProps, prevState) {
-  //   const { page, query } = this.state;
-  //   if (
-  //     (prevProps.query !== query && query !== '') ||
-  //     (prevState.page !== page && page !== 1)
-  //   ) {
-  //     this.setNews();
-  //   }
-  // }
   const setNews = useCallback(async () => {
     setIsLoading(true);
     setIsBtn(false);
@@ -94,8 +70,6 @@ const Gallery = ({ query }) => {
   const closeModal = useCallback(() => {
     setModalData(null);
   },[]);
-
-  // const { images, modalData, isLoading, isBtn } = this.state;
 
   return (
     <>
